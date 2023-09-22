@@ -4,7 +4,7 @@ package top.meethigher.light.statemachine;
  * 转换状态时的动作
  *
  * @author chenchuancheng
- * @since 2023/09/21 19:01
+ * @since 2023/09/22 20:18
  */
 public interface Action {
 

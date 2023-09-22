@@ -1,10 +1,10 @@
 package top.meethigher.light.statemachine;
 
 /**
- * 转换关系
+ * 转换状态时的动作
  *
  * @author chenchuancheng
- * @since 2023/09/21 18:46
+ * @since 2023/09/22 20:19
  */
 public class Transition<T extends Enum<T>> {
 

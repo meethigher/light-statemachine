@@ -7,7 +7,7 @@ import java.util.List;
  * 状态机
  *
  * @author chenchuancheng
- * @since 2023/09/21 18:42
+ * @since 2023/09/22 20:18
  */
 public class StateMachine<T extends Enum<T>> {
 
@@ -27,11 +27,24 @@ public class StateMachine<T extends Enum<T>> {
      * @param enumType     枚举
      * @param initialState 初始状态
      */
-    public StateMachine(Class<T> enumType, T initialState) {
+    private StateMachine(Class<T> enumType, T initialState) {
         if (!enumType.isEnum()) {
             throw new IllegalArgumentException("The type parameter must be an enum.");
         }
         this.currentState = initialState;
+    }
+
+
+    /**
+     * 获取状态实例
+     *
+     * @param enumType     枚举
+     * @param initialState 初始状态
+     * @param <F>          枚举具体类型
+     * @return 状态机
+     */
+    public static <F extends Enum<F>> StateMachine<F> getInstance(Class<F> enumType, F initialState) {
+        return new StateMachine<>(enumType, initialState);
     }
 
     /**
