@@ -6,7 +6,7 @@
 
     <groupId>top.meethigher</groupId>
     <artifactId>light-statemachine</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>light-statemachine</name>
     <description>轻量状态机</description>
     <url>https://github.com/meethigher/light-statemachine</url>

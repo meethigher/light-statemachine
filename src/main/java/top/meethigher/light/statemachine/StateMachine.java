@@ -53,22 +53,25 @@ public class StateMachine<T extends Enum<T>> {
      * @param sourceState 起始状态
      * @param targetState 目标状态
      * @param action      动作
+     * @return 状态机本身
      */
-    public void addTransition(T sourceState, T targetState, Action action) {
+    public StateMachine<T> addTransition(T sourceState, T targetState, Action action) {
         transitions.add(new Transition<T>(sourceState, targetState, action));
+        return this;
     }
 
     /**
      * 转换到目标状态，并更新状态机内状态
      *
      * @param targetState 目标状态
+     * @return 状态机本身
      */
-    public void transitionToTargetState(T targetState) {
+    public StateMachine<T> transitionToTargetState(T targetState) {
         for (Transition<T> transition : transitions) {
             if (transition.getSourceState() == currentState && transition.getTargetState() == targetState) {
                 transition.performAction();
                 currentState = targetState;
-                return;
+                return this;
             }
         }
         throw new IllegalStateException("Invalid transition from " + currentState + " to " + targetState);
